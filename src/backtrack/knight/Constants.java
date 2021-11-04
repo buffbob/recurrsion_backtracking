@@ -1,4 +1,4 @@
-package knight;
+package backtrack.knight;
 
 public class Constants {
     private Constants() {}

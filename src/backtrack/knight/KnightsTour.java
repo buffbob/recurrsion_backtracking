@@ -1,12 +1,14 @@
-package knight;
+package backtrack.knight;
 
 public class KnightsTour {
 
     public static int counter = 0;
     int [][] chessboard;
+    int size;
 
-    public KnightsTour() {
-        chessboard = new int [Constants.BOARD_SIZE][Constants.BOARD_SIZE];
+    public KnightsTour(){
+        this.size = 9;
+        chessboard = new int [size][size];
         initializeBoard();
     }
 
@@ -21,7 +23,7 @@ public class KnightsTour {
     }
 
     private boolean solveKnights(int movesCounter, int x, int y) {
-        if (movesCounter == Constants.BOARD_SIZE * Constants.BOARD_SIZE + 1){
+        if (movesCounter == size * size + 1){
             System.out.println("final spot @ (" + x + ", "+ y + ")");
             System.out.println("total trys = " + counter);
             return true;
@@ -42,8 +44,8 @@ public class KnightsTour {
     }
 
     private boolean isValid2(int x, int y) {
-        if((x < 0) || (x >= Constants.BOARD_SIZE)) return false;
-        if((y < 0) || (y >= Constants.BOARD_SIZE)) return false;
+        if((x < 0) || (x >= size)) return false;
+        if((y < 0) || (y >= size)) return false;
         if(chessboard[x][y] != -1) return false;
         return true;
 
@@ -57,7 +59,7 @@ public class KnightsTour {
     }
 
     private boolean inRange(int x, int y) {
-        if (((x>=0) &&(x<Constants.BOARD_SIZE)) && ((y>=0) && (y<Constants.BOARD_SIZE))) return true;
+        if (((x>=0) &&(x<size)) && ((y>=0) && (y<size))) return true;
         return false;
     }
 
@@ -67,16 +69,16 @@ public class KnightsTour {
     }
     
     private void initializeBoard(){
-        for (int i = 0; i < Constants.BOARD_SIZE; i++) {
-            for (int j = 0; j < Constants.BOARD_SIZE; j++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 chessboard[i][j] = -1;
             }
         }
     }
 
     private void printKnights(){
-        for (int i = 0; i < Constants.BOARD_SIZE; i++) {
-            for (int j = 0; j < Constants.BOARD_SIZE; j++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 System.out.printf("%3d",chessboard[i][j]);
             }
             System.out.println();

@@ -1,4 +1,4 @@
-package binary;
+package backtrack.binary;
 
 public class BinarySearch {
 
